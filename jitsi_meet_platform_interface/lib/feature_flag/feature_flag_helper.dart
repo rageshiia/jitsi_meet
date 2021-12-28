@@ -21,5 +21,6 @@ class FeatureFlagHelper {
     FeatureFlagEnum.TILE_VIEW_ENABLED: 'tile-view.enabled',
     FeatureFlagEnum.TOOLBOX_ALWAYS_VISIBLE: 'toolbox.alwaysVisible',
     FeatureFlagEnum.WELCOME_PAGE_ENABLED: 'welcomepage.enabled',
+    FeatureFlagEnum.OVER_FLOW_ENABLED: 'overflow-menu.enabled'
   };
 }
