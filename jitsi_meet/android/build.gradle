@@ -17,8 +17,7 @@ buildscript {
 rootProject.allprojects {
     repositories {
         maven {
-           // url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
-           url "file:/tmp/repo"
+            url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
         }
         google()
         jcenter()
