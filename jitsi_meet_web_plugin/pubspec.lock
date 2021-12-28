@@ -68,9 +68,11 @@ packages:
   jitsi_meet_platform_interface:
     dependency: "direct main"
     description:
-      path: "../jitsi_meet_platform_interface"
-      relative: true
-    source: path
+      path: jitsi_meet_platform_interface
+      ref: master
+      resolved-ref: ab7379553700dbadca04bbdb83661993a135433f
+      url: "git://github.com/rageshiia/jitsi_meet.git"
+    source: git
     version: "2.0.0"
   js:
     dependency: "direct main"

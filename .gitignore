@@ -114,3 +114,4 @@ node_modules/
 
 jitsi_meet/ios/sdk/*
 jitsi_meet_platform_interface/pubspec.lock
+jitsi_meet_web_plugin/pubspec.lock
