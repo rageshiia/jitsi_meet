@@ -88,6 +88,12 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         super.onConferenceTerminated(data)
     }
 
+    override fun onParticipantLeft(data: HashMap<String, Any>) {
+
+        Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetPluginActivity.onParticipantLeft: %s", data))
+        JitsiMeetEventStreamHandler.instance.onParticipantLeft(data)
+        super.onParticipantLeft(data)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         turnScreenOnAndKeyguardOff();

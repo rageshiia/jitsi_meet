@@ -112,4 +112,5 @@ node_modules/
 # dotenv environment variables file
 .env
 
-
+jitsi_meet/ios/sdk/*
+jitsi_meet_platform_interface/pubspec.lock

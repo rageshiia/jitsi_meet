@@ -63,14 +63,14 @@ class JitsiViewController: UIViewController {
         jitsiMeetView.delegate = self
         self.jitsiMeetView = jitsiMeetView
         let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
-            builder.welcomePageEnabled = true
+         //   builder.welcomePageEnabled = true
             builder.room = self.roomName
             builder.serverURL = self.serverUrl
-            builder.subject = self.subject
+         //   builder.subject = self.subject
             builder.userInfo = self.jistiMeetUserInfo
-            builder.audioOnly = self.audioOnly ?? false
-            builder.audioMuted = self.audioMuted ?? false
-            builder.videoMuted = self.videoMuted ?? false
+         //   builder.audioOnly = self.audioOnly ?? false
+         //   builder.audioMuted = self.audioMuted ?? false
+         //   builder.videoMuted = self.videoMuted ?? false
             builder.token = self.token
             
             self.featureFlags?.forEach{ key,value in
@@ -134,6 +134,23 @@ extension JitsiViewController: JitsiMeetViewDelegate {
         }
         
     }
+
+    func participantLeft(_ data: [AnyHashable : Any]!) {
+        //        print("onParticipantLeft")
+        var mutatedData = data
+        mutatedData?.updateValue("onParticipantLeft", forKey: "event")
+        self.eventSink?(mutatedData)
+        
+        DispatchQueue.main.async {
+            self.pipViewCoordinator?.hide() { _ in
+                self.cleanUp()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+    }
+
+    
     
     func enterPicture(inPicture data: [AnyHashable : Any]!) {
         //        print("CONFERENCE PIP IN")

@@ -38,6 +38,7 @@ class _MeetingState extends State<Meeting> {
         onConferenceWillJoin: _onConferenceWillJoin,
         onConferenceJoined: _onConferenceJoined,
         onConferenceTerminated: _onConferenceTerminated,
+        onParticipantLeft:_onParticipantLeft,
         onError: _onError));
   }
 
@@ -234,7 +235,7 @@ class _MeetingState extends State<Meeting> {
     // If feature flag are not provided, default values will be used
     // Full list of feature flags (and defaults) available in the README
     Map<FeatureFlagEnum, bool> featureFlags = {
-      FeatureFlagEnum.WELCOME_PAGE_ENABLED: false,
+      FeatureFlagEnum.WELCOME_PAGE_ENABLED: false
     };
     if (!kIsWeb) {
       // Here is an example, disabling features for each platform
@@ -247,7 +248,7 @@ class _MeetingState extends State<Meeting> {
       }
     }
     // Define meetings options here
-    var options = JitsiMeetingOptions(room: roomText.text)
+    var options = JitsiMeetingOptions(room: "qwe123"/* roomText.text */)
       ..serverURL = serverUrl
       ..subject = subjectText.text
       ..userDisplayName = nameText.text
@@ -279,6 +280,10 @@ class _MeetingState extends State<Meeting> {
           onConferenceTerminated: (message) {
             debugPrint("${options.room} terminated with message: $message");
           },
+          onParticipantLeft:(message){
+             debugPrint("${options.room} participant left with message: $message");
+             Navigator.pop(context);
+          },
           genericListeners: [
             JitsiGenericListener(
                 eventName: 'readyToClose',
@@ -303,5 +308,11 @@ class _MeetingState extends State<Meeting> {
 
   _onError(error) {
     debugPrint("_onError broadcasted: $error");
+  }
+
+  _onParticipantLeft(message) {
+    print("##########");
+    JitsiMeet.closeMeeting();
+    debugPrint("_onParticipantLeft broadcasted: $message");
   }
 }
