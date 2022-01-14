@@ -17,8 +17,8 @@ Jitsi Meet Plugin
   s.dependency 'Flutter'
   #s.vendored_frameworks = 'sdk/JitsiMeetSDK.xcframework'
   #s.vendored_frameworks = 'sdk/WebRTC.xcframework'
-  s.dependency 'JitsiMeetSDK'
-  s.platform = :ios, '11.0'
+  s.dependency 'JitsiMeetSDK', '4.1.0'
+  s.platform = :ios, '12.0'
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
