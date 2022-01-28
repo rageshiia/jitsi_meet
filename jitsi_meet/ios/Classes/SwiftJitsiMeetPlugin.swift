@@ -102,7 +102,7 @@ public class SwiftJitsiMeetPlugin: NSObject, FlutterPlugin, FlutterStreamHandler
             navigationController.setNavigationBarHidden(true, animated: false)
             navigationController.modalPresentationStyle = .fullScreen
             navigationController.navigationBar.barTintColor = UIColor.black
-            self.uiVC.present(navigationController, animated: false)
+            self.uiVC.present(navigationController, animated: true)
             result(nil)
 
         }else if (call.method == "closeMeeting") {
